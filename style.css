@@ -1,0 +1,1304 @@
+/*
+Theme Name: Both Birds
+Theme URI: https://bothbirds.co.uk
+Author: Both Birds
+Author URI: https://bothbirds.co.uk
+Description: To be added...
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: bothbirds
+Tags: both birds, website development, seo,
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 Normalize
+2.0 Accessibility (Screen Readers)
+3.0 Alignments
+4.0 Typography
+5.0 Forms
+6.0 Comments
+7.0 Lists
+8.0 Images
+
+Responsive Styles
+R.1 General Layout
+R.2 Typography
+R.3 Links
+R.4 Navigation
+R.5 Header
+R.6 Footer
+R.7 Front Page
+R.8 Exhibition Page
+R.9 About The Artist
+R.10 Contact Page
+R.11 Gallery, Category Page
+R.12 Single Post
+R.13 Template Parts
+	R.13.1 Sticky Posts, Recent Posts, Searched Posts, Random Cat Posts
+	R.13.2 CTA Links
+	R.13.3 Category List
+
+
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.0 Normalize
+Styles based on Normalize v5.0.0 @link https://github.com/necolas/normalize.css
+--------------------------------------------------------------*/
+
+/* add this when coding (It helps) */
+	/*
+	* {
+		border: .5px tomato solid;
+	}
+	*/
+
+html {
+	font-family: sans-serif;
+	line-height: 1.15;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	/* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	box-sizing: inherit;
+}
+
+body {
+	margin: 0;
+	background: #fff;
+	/* Fallback for when there is no custom background color defined. */
+}
+
+article,
+aside,
+footer,
+header,
+nav,
+section,
+figcaption,
+figure,
+main {
+	display: block;
+}
+
+figure {
+	margin: 1em 0;
+}
+
+hr {
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	height: 0;
+	overflow: visible;
+}
+
+pre {
+	font-family: monospace, monospace;
+	font-size: 1em;
+}
+
+a {
+	background-color: transparent;
+	-webkit-text-decoration-skip: objects;
+}
+
+a:active,
+a:hover {
+	outline-width: 0;
+}
+
+abbr[title] {
+	border-bottom: 1px #767676 dotted;
+	text-decoration: none;
+}
+
+b,
+strong {
+	font-weight: inherit;
+}
+
+b,
+strong {
+	font-weight: 700;
+}
+
+code,
+kbd,
+samp {
+	font-family: monospace, monospace;
+	font-size: 1em;
+}
+
+dfn {
+	font-style: italic;
+}
+
+mark {
+	background-color: #eee;
+	color: #222;
+}
+
+small {
+	font-size: 80%;
+}
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+sup {
+	top: -0.5em;
+}
+
+audio,
+video {
+	display: inline-block;
+}
+
+audio:not([controls]) {
+	display: none;
+	height: 0;
+}
+
+img {
+	border-style: none;
+}
+
+img,
+video {
+	height: auto; /* Make sure images are scaled correctly. */
+	max-width: 100%; /* Adhere to container width. */
+}
+
+svg:not(:root) {
+	overflow: hidden;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+	font-family: sans-serif;
+	font-size: 100%;
+	line-height: 1.15;
+	margin: 0;
+}
+
+button,
+input {
+	overflow: visible;
+}
+
+button,
+select {
+	text-transform: none;
+}
+
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+	-webkit-appearance: button;
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+	border-style: none;
+	padding: 0;
+}
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+	outline: 1px dotted ButtonText;
+}
+
+fieldset {
+	border: 1px solid #bbb;
+	margin: 0 2px;
+	padding: 0.35em 0.625em 0.75em;
+}
+
+legend {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	color: inherit;
+	display: table;
+	max-width: 100%;
+	padding: 0;
+	white-space: normal;
+}
+
+progress {
+	display: inline-block;
+	vertical-align: baseline;
+}
+
+textarea {
+	overflow: auto;
+}
+
+[type="checkbox"],
+[type="radio"] {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0;
+}
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+	height: auto;
+}
+
+[type="search"] {
+	-webkit-appearance: textfield;
+	outline-offset: -2px;
+}
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+	-webkit-appearance: button;
+	font: inherit;
+}
+
+details,
+menu {
+	display: block;
+}
+
+summary {
+	display: list-item;
+}
+
+canvas {
+	display: inline-block;
+}
+
+template {
+	display: none;
+}
+
+[hidden] {
+	display: none;
+}
+
+
+
+/*--------------------------------------------------------------
+2.0 Accessibility
+--------------------------------------------------------------*/
+
+/* Text meant only for screen readers. */
+
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	overflow: hidden;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: 700;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}
+
+
+
+/*--------------------------------------------------------------
+3.0 Alignments
+--------------------------------------------------------------*/
+
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/*--------------------------------------------------------------
+4.0 Typography
+--------------------------------------------------------------*/
+
+body,
+button,
+input,
+select,
+textarea {
+	color: #333;
+	font-family: "Merriweather", sans-serif;
+	font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+	line-height: 1.4;
+	margin: 0 0 0.5em;
+	padding: 0;
+}
+
+h1 {
+	font-family: 'Alice', serif;
+}
+
+p {
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+blockquote {
+	color: #666;
+	font-style: italic;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+}
+
+blockquote cite {
+	display: block;
+	font-style: normal;
+	font-weight: 600;
+	margin-top: 0.5em;
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+pre {
+	background: #eee;
+	font-family: "Courier 10 Pitch", Courier, monospace;
+	font-size: 15px;
+	font-size: 0.9375rem;
+	line-height: 1.6;
+	margin-bottom: 1.6em;
+	max-width: 100%;
+	overflow: auto;
+	padding: 1.6em;
+}
+
+code,
+kbd,
+tt,
+var {
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font-size: 15px;
+	font-size: 0.9375rem;
+}
+
+abbr,
+acronym {
+	border-bottom: 1px dotted #666;
+	cursor: help;
+}
+
+mark,
+ins {
+	background: #eee;
+	text-decoration: none;
+}
+
+big {
+	font-size: 125%;
+}
+
+blockquote {
+	quotes: "" "";
+}
+
+q {
+	quotes: "“" "”" "‘" "’";
+}
+
+blockquote:before,
+blockquote:after {
+	content: "";
+}
+
+:focus {
+	outline: none;
+}
+
+/* Styles for other larguages can be placed here */
+
+
+/*--------------------------------------------------------------
+4.0 Forms
+--------------------------------------------------------------*/
+
+label {
+	display: block;
+	font-weight: 800;
+	margin-bottom: 0.5em;
+}
+
+fieldset {
+	margin-bottom: 1em;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+	color: #666;
+	background: #fff;
+	border: 1px solid #bbb;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	display: block;
+	padding: 0.3em;
+	margin-bottom: 1rem;
+	width: 100%;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="range"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="week"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="color"]:focus,
+textarea:focus {
+	color: #222;
+	border-color: #333;
+}
+
+select {
+	border: 1px solid #bbb;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	height: 3em;
+	max-width: 100%;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+	margin-right: 0.5em;
+}
+
+input[type="radio"] + label,
+input[type="checkbox"] + label {
+	font-weight: 400;
+}
+
+button,
+input[type="button"],
+input[type="submit"] {
+	background-color: #222;
+	border: 0;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: 800;
+	line-height: 1;
+	padding: 1em 2em;
+	text-shadow: none;
+	-webkit-transition: background 0.2s;
+	transition: background 0.2s;
+}
+
+input + button,
+input + input[type="button"],
+input + input[type="submit"] {
+	padding: 0.75em 2em;
+}
+
+button:hover,
+button:focus,
+input[type="button"]:hover,
+input[type="button"]:focus,
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+	background: #767676;
+}
+
+.nf-form-fields-required {
+	display: none;
+}
+
+#nf-field-7 {
+	height: 40px;
+	background-color: #FFF;
+}
+
+/*--------------------------------------------------------------
+6.0 Comments
+--------------------------------------------------------------*/
+/*
+#comments {
+	clear: both;
+	padding: 2em 0 0.5em;
+}
+
+.comments-title {
+	font-size: 20px;
+	font-size: 1.25rem;
+	margin-bottom: 1.5em;
+}
+
+.comment-list,
+.comment-list .children {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.comment-list li:before {
+	display: none;
+}
+
+.comment-body {
+	margin-left: 65px;
+}
+
+.comment-author {
+	font-size: 16px;
+	font-size: 1rem;
+	margin-bottom: 0.4em;
+	position: relative;
+	z-index: 2;
+}
+
+.comment-author .avatar {
+	height: 50px;
+	left: -65px;
+	position: absolute;
+	width: 50px;
+}
+
+.comment-author .says {
+	display: none;
+}
+
+.comment-meta {
+	margin-bottom: 1.5em;
+}
+
+.comment-metadata {
+	color: #767676;
+	font-size: 10px;
+	font-size: 0.625rem;
+	font-weight: 800;
+	letter-spacing: 0.1818em;
+	text-transform: uppercase;
+}
+
+.comment-metadata a {
+	color: #767676;
+}
+
+.comment-metadata a.comment-edit-link {
+	color: #222;
+	margin-left: 1em;
+}
+
+.comment-body {
+	color: #333;
+	font-size: 14px;
+	font-size: 0.875rem;
+	margin-bottom: 4em;
+}
+
+.comment-reply-link {
+	font-weight: 800;
+	position: relative;
+}
+
+.comment-reply-link .icon {
+	color: #222;
+	left: -2em;
+	height: 1em;
+	position: absolute;
+	top: 0;
+	width: 1em;
+}
+
+.children .comment-author .avatar {
+	height: 30px;
+	left: -45px;
+	width: 30px;
+}
+
+.bypostauthor > .comment-body > .comment-meta > .comment-author .avatar {
+	border: 1px solid #333;
+	padding: 2px;
+}
+
+.no-comments,
+.comment-awaiting-moderation {
+	color: #767676;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-style: italic;
+}
+
+.comments-pagination {
+	margin: 2em 0 3em;
+}
+
+.form-submit {
+	text-align: right;
+}
+*/
+
+
+/*--------------------------------------------------------------
+7.0 Lists
+--------------------------------------------------------------*/
+
+ul,
+ol {
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+li {
+	list-style-position: inside;
+}
+
+dt {
+	font-weight: 700;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
+
+/*--------------------------------------------------------------
+8.0 Images
+--------------------------------------------------------------*/
+
+.post-thumbnail a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.post-thumbnail a img {
+	-webkit-backface-visibility: hidden;
+	-webkit-transition: opacity 0.2s;
+	transition: opacity 0.2s;
+	padding-bottom: 1rem;
+}
+
+
+
+
+
+
+
+/*********************** HERE STARTS RESPONSIVE LAYOUT ***********************/
+
+/*--------------------------------------------------------------
+R.1 General Layout
+--------------------------------------------------------------*/
+
+.wrapper-bg {
+	background-color: #fff;
+	position: relative;
+}
+
+.wrapper {
+	margin: 0 auto;
+	padding: 4rem 0;
+	width: 90%;
+	max-width: 960px;
+}
+
+.wrapper:after {
+	clear: both;
+	content: "";
+	display: block;
+}
+
+
+/*--------------------------------------------------------------
+R.2 Typography
+--------------------------------------------------------------*/
+
+body,
+button,
+input,
+select,
+textarea {
+	font-size: 1.125rem;
+	line-height: 1.66;
+	text-align: center;
+}
+
+h1 {
+	font-size: 4rem; /* 48px */
+	font-weight: 300;
+}
+
+h2 {
+	font-size: 2em;
+	font-weight: 300;
+	text-align: center;
+}
+
+h3 {
+	font-size: 1.4em;
+	font-weight: 300;
+	text-transform: uppercase;
+}
+
+h4 {
+	font-size: 1em;
+	font-weight: 300;
+}
+
+h5 {
+	font-size: 0.8em;
+	font-weight: 300;
+}
+
+h6 {
+	font-size: 0.9375em;
+	font-weight: 800;
+}
+
+
+/*--------------------------------------------------------------
+R.3 Links
+--------------------------------------------------------------*/
+
+a {
+	text-decoration: none;
+	transition: all .3s ease-in-out;
+	color: #585858;
+}
+
+a:hover {
+	transition: all .5s ease-in-out;
+}
+
+/* MAIN NAV, FOOTER NAV */
+.main-navigation a,
+#menu-secondary-menu a {
+	border-bottom: 1px solid transparent;
+}
+
+.navigation-top .current-menu-item > a,
+.navigation-top .current_page_item > a,
+.main-navigation a:hover,
+#menu-secondary-menu .current-menu-item > a,
+#menu-secondary-menu .current_page_item > a,
+#menu-secondary-menu a:hover  {
+	outline: 0;
+	border-bottom: 1px solid #000;
+
+}
+
+
+/*********************** HERE STARTS TABLET LINKS ***********************/
+@media screen and ( min-width: 768px ) {
+
+}
+/*********************** HERE ENDS TABLET LINKS ***********************/
+
+
+
+/*--------------------------------------------------------------
+R.4 Navigation
+--------------------------------------------------------------*/
+
+/* black nav bar style (stick to bottom of page) */
+.nav-top-bar {
+	width: 100vw;
+	height: 90px;
+	padding: 1.2rem 0;
+}
+
+/* Outer container for top nav */
+.navigation-top {
+	font-size: 1.25rem; /* 20px */
+	position: relative;
+	display: flex;
+	max-width: 940px;
+	margin: 0 auto;
+}
+
+/* The Nav ul - container for the nav li */
+.navigation-top ul {
+	list-style: none;
+	transform: translate3d(0px,292px,0px); /* amount used here is important!Repeated in other translations */
+	position: absolute;
+	width: 100vw;
+	transition: all .3s;
+	z-index: 1;
+}
+
+/* ul li a style */
+.main-navigation a {
+	color: #585858;
+	font-weight: 600;
+	display: block;
+	margin: 1em 1.25em;
+}
+
+
+
+/* Sub Menu of li Styling */
+.main-navigation .sub-menu {
+	background-color: #fff;
+	border: 1px solid #eee;
+	padding: 0;
+	position: absolute;
+	display: none;
+	z-index: 1; /* allows it to appear on top of rest of content */
+}
+
+.main-navigation .sub-menu li {
+	background-color: #FFF;
+	border-bottom: 1px solid #eee;
+	min-width: 220px;
+}
+
+.main-navigation .sub-menu li:last-child {
+	border-bottom: none;
+}
+
+.main-navigation li:hover > .sub-menu {
+	display: block;
+}
+
+.main-navigation .sub-menu a {
+	border-bottom: none;
+}
+
+
+/* Mobile Nav Toggle Swipe Action */
+input[data-function*='swipe'] {
+  position: absolute;
+  opacity: 0;
+}
+
+label[data-function*='swipe'] {
+  position: absolute;
+  top: 15px; /* position */
+  left: 15px; /* position */
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* Mobile Nav Toggle Styling */
+.three-bars .bar1,
+.three-bars .bar2,
+.three-bars .bar3 {
+  display: block;
+  width: 30px;
+  height: 4px;
+  background: #FFF;
+  margin: 5px;
+  transition: all .3s ease-in-out;
+}
+
+.three-bars:hover .bar1 {
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+
+.three-bars:hover .bar3 {
+  margin-top: 6px;
+  margin-bottom: 4px;
+}
+
+
+/* translation of menu ul */
+input[data-function='swipe']:checked~.main-nav ul {
+  transform: translate3d(0,-292px,0);
+}
+
+
+/*********************** HERE STARTS TABLET NAV ***********************/
+@media screen and ( min-width: 768px ) {
+
+	.mob-nav-toggle {
+		display: none !important;
+	}
+
+	.navigation-top {
+		display: block;
+		font-size: 1rem;
+	}
+
+	.navigation-top ul {
+		width: 100%;
+		transform: none;
+		position: relative;
+		text-align: left;
+		padding-left: .75rem;
+	}
+
+	.main-navigation li {
+		border: 0;
+		display: inline-block;
+		position: relative;
+	}
+}
+/*********************** HERE ENDS TABLET NAV ***********************/
+
+
+
+/* Search Bar */
+.search-bar {
+	z-index: 2;
+  position: absolute;
+	width: 60%;
+	max-width: 210px;
+	right: 2%;
+	top: 12px;
+}
+
+.search-form {
+	position: relative;
+}
+
+.search-form input {
+	text-align: left;
+	height: 35px;
+}
+
+.search-form button {
+	background-color: #555;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 45px;
+	height: 35px;
+	padding: 0;
+	border-radius: 0 3px 3px 0;
+	transition: all .5s ease-in-out;
+}
+
+.search-form button:hover {
+	background-color: #333;
+}
+
+.search-form button i {
+	position: absolute;
+	top: 25%;
+	right:30%;
+}
+
+
+
+/*--------------------------------------------------------------
+R.5 Header
+--------------------------------------------------------------*/
+
+.site-header {
+	width: 100%;
+	position: relative;
+	height: 50vh;
+}
+
+/* Header Image */
+.header-media {
+	width: 100vw;
+}
+
+.header-media img,
+.nav-top-bar,
+.header-content {
+	position: fixed;
+}
+
+.header-media img {
+	min-width: 100vw;
+	height: 40vh;
+	object-fit: cover;
+	left: 0;
+	top: 15vh;
+}
+
+.header-content {
+	background-color: rgba(255,255,255,.8);
+	margin: 0 auto;
+	padding: 1rem;
+	left: 30%;
+	top: 25vh;
+	width: 40%;
+	max-width: 600px;
+	min-width: 250px;
+}
+
+/*********************** HERE STARTS TABLET HEADER ***********************/
+@media screen and ( min-width: 768px ) {
+
+
+}
+/*********************** HERE ENDS TABLET HEADER ***********************/
+
+
+/*********************** HERE STARTS DESKTOP HEADER ***********************/
+@media screen and ( min-width: 960px ) {
+
+
+}
+/*********************** HERE ENDS DESKTOP HEADER ***********************/
+
+
+
+/*--------------------------------------------------------------
+R.6 Footer
+--------------------------------------------------------------*/
+
+footer {
+	color: #585858;
+	background-color: #EAEAEA;
+	width: 100%;
+}
+
+.site-footer {
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+/* Footer Nav */
+.footer-nav {
+	font-size: 1rem;
+}
+
+#menu-secondary-menu {
+	padding: 2rem 0 0;
+	list-style: none;
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+}
+
+#menu-secondary-menu li {
+	display: inline-block;
+	margin: .25em 3rem;
+}
+
+
+/* Social-Media */
+.social-icons {
+	background: tomato;
+	display: inline-block;
+	text-align: left;
+
+}
+.social-icons img {
+	height: 40px;
+	padding-right: 1.5rem;
+}
+
+
+/* Site info & Legal Stuff */
+.footer-legal,
+.site-info {
+	background-color: tomato;
+	font-size: 0.875rem;
+	text-align: right;
+	padding-left: .75rem;
+}
+
+/*********************** HERE STARTS TABLET FOOTER ***********************/
+@media screen and ( min-width: 768px ) {
+
+
+}
+/*********************** HERE ENDS TABLET FOOTER ***********************/
+
+
+/*********************** HERE STARTS DESKTOP FOOTER ***********************/
+@media screen and ( min-width: 960px ) {
+
+}
+/*********************** HERE ENDS DESKTOP FOOTER ***********************/
+
+
+/*--------------------------------------------------------------
+R.7 Front Page
+--------------------------------------------------------------*/
+.front-page .wrapper {
+	width: 80%;
+	max-width: 650px;
+}
+
+.front-page > div:nth-child(4n+2) {
+	background-color: #EAEAEA;
+}
+
+.front-page > div:nth-child(4n+4) {
+	background-color: #BBE1D0;
+}
+
+
+/*--------------------------------------------------------------
+R.8 Landing Page (services)
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+R.8 Service Page 1 (Web Design)
+--------------------------------------------------------------*/
+.service1-page .wrapper {
+	width: 80%;
+	max-width: 650px;
+}
+
+.service1-page > div:nth-child(4n+2) {
+	background-color: #EAEAEA;
+}
+
+.service1-page > div:nth-child(4n+4) {
+	background-color: #BBE1D0;
+}
+
+/*--------------------------------------------------------------
+R.9 Service Page 2 (SEO)
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+R.10 Service Page 3 (SEO Audits, Training, Counselling)
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+R.10 Contact Page
+--------------------------------------------------------------*/
+
+
+
+/*--------------------------------------------------------------
+R.11 Error Page & Search Page
+--------------------------------------------------------------*/
+
+
+
+/*--------------------------------------------------------------
+R.11 Category Page
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+R.12 Single Post
+--------------------------------------------------------------*/
+
+
+
+/*--------------------------------------------------------------
+R.13 Template Parts
+--------------------------------------------------------------*/
